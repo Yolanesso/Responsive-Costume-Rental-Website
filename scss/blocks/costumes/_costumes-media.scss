@@ -1,0 +1,57 @@
+@media (max-width: $breakpoint_xxl) {
+	.costumes {
+		padding: 0 120px;
+	}
+}
+
+@media (max-width: $breakpoint_xl) {
+	.costumes {
+		padding: 0 0;
+		&__container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}
+
+@media (max-width: $breakpoint_l) {
+	.costumes {
+		padding: 0 0;
+		&__container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}
+
+@media (max-width: $breakpoint_m) {
+	.costumes {
+		padding: 0 0;
+		&__container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+@media (max-width: $breakpoint_s) {
+	.costumes {
+		padding: 0 0;
+		&__container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 13px 16px;
+		}
+	}
+}
+
+@media (max-width: $breakpoint_xs) {
+	.costumes {
+		padding: 0 0;
+		&__container {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 13px 16px;
+		}
+	}
+}

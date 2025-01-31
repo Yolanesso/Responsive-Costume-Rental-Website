@@ -1,0 +1,47 @@
+@media (max-width: $breakpoint_xxl) {
+	.suit-rental {
+		padding: 0 118px;
+	}
+}
+
+@media (max-width: $breakpoint_xl) {
+	.suit-rental {
+		padding: 0 10px;
+
+		&__info-text {
+			max-width: 100%;
+		}
+	}
+}
+
+@media (max-width: $breakpoint_l) {
+	.suit-rental {
+		padding: 0 10px;
+
+		&__info-text {
+			max-width: 100%;
+			font-size: 42px;
+		}
+	}
+}
+
+@media (max-width: $breakpoint_m) {
+	.suit-rental {
+		&__container {
+			text-align: center;
+			flex-direction: column;
+		}
+	}
+}
+
+@media (max-width: $breakpoint_s) {
+	.suit-rental {
+		&__container {
+			text-align: center;
+			flex-direction: column;
+		}
+	}
+}
+
+@media (max-width: $breakpoint_xs) {
+}

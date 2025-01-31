@@ -1,0 +1,56 @@
+@media (max-width: $breakpoint_xxl) {
+	.footer {
+		padding: 0 120px;
+	}
+}
+
+@media (max-width: $breakpoint_xl) {
+	.footer {
+		padding: 0 10px;
+	}
+}
+
+@media (max-width: $breakpoint_l) {
+	.footer__img {
+		max-width: 102px;
+	}
+
+	.header__nav__tel {
+		font-size: 18px;
+	}
+
+	.footer {
+		padding: 0 10px;
+	}
+}
+
+@media (max-width: $breakpoint_m) {
+	.footer__img {
+		max-width: 102px;
+	}
+
+	.header__nav__tel {
+		font-size: 18px;
+	}
+
+	.footer {
+		padding: 0 10px;
+	}
+}
+
+@media (max-width: $breakpoint_s) {
+	.footer {
+		&__container {
+			padding: 16px 10px;
+		}
+	}
+}
+
+@media (max-width: $breakpoint_xs) {
+	.footer {
+		&__container {
+			flex-direction: column;
+			row-gap: 16px;
+		}
+	}
+}

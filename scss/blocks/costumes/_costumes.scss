@@ -1,0 +1,67 @@
+.costumes {
+	font-family: $base-font;
+	margin-top: 70px;
+	margin-bottom: 120px;
+	@include paddintPage;
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		gap: 16px 20px;
+	}
+
+	&__title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: $base-font;
+		font-size: 43px;
+		margin-bottom: 64px;
+	}
+
+	&__card {
+		border-radius: 3px;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+
+		&-title {
+			color: $dark-blue;
+			font-size: $font-size-base;
+		}
+
+		&-size {
+			color: $grey-blue-clr;
+			margin-bottom: 10px;
+		}
+
+		&-price {
+			color: $dark-blue;
+			font-weight: $font-weight-large;
+			font-size: $font-size-small;
+			margin-bottom: 10px;
+		}
+
+		&-btn {
+			color: $while-clr;
+			background-color: $yellow-clr;
+			border-radius: 4px;
+			padding: 5px 13px;
+			font-size: $font-size-btn;
+			font-family: $base-font;
+			border: none;
+			font-weight: $font-weight-large;
+			margin-bottom: 16px;
+		}
+
+		&-in_stock {
+			color: $grey-blue-clr;
+			font-size: $font-size-small;
+
+			&--item {
+				color: $red-clr;
+			}
+		}
+	}
+}

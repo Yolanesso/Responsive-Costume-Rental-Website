@@ -1,0 +1,19 @@
+.header {
+	background-color: #eff5ff;
+	&__container {
+		padding-top: 11px;
+		padding-left: 298px;
+		padding-right: 298px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__nav__tel {
+		text-decoration: none;
+		color: $dark-blue;
+		font-size: $font-size-medium;
+		font-family: $base-font;
+		font-weight: $font-weight-large;
+	}
+}

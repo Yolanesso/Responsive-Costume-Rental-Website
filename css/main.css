@@ -1,0 +1,498 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/MontserratAlternates-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/MontserratAlternates-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+	 Убираем внутренние отступы слева тегам списков,
+	 у которых есть атрибут class
+	*/
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+	 Убираем внешние отступы body и двум другим тегам,
+	 у которых есть атрибут class
+	*/
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+	 Убираем внешние отступы вертикали нужным тегам,
+	 у которых есть атрибут class
+	*/
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+	 Убираем стандартный маркер маркированному списку,
+	 у которого есть атрибут class
+	*/
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+	 Обнуляем вертикальные внешние отступы параграфа,
+	 объявляем локальную переменную для внешнего отступа вниз,
+	 чтобы избежать взаимодействие с более сложным селектором
+	*/
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+	 Внешний отступ вниз для параграфа без атрибута class,
+	 который расположен не последним среди своих соседних элементов
+	*/
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+	 Упрощаем работу с изображениями и видео
+	*/
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+	 Наследуем свойства шрифт для полей ввода
+	*/
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+  	 Пригодится в большинстве ситуаций
+  	 (когда, например, нужно будет "прижать" футер к низу сайта)
+  	*/
+  height: 100%;
+  /**
+  	 Убираем скачок интерфейса по горизонтали
+  	 при появлении / исчезновении скроллбара
+  	*/
+  scrollbar-gutter: stable;
+}
+
+/**
+	 Плавный скролл
+	*/
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+  	 Пригодится в большинстве ситуаций
+  	 (когда, например, нужно будет "прижать" футер к низу сайта)
+  	*/
+  min-height: 100%;
+  /**
+  	 Унифицированный интерлиньяж
+  	*/
+  line-height: 1.5;
+}
+
+/**
+	 Нормализация высоты элемента ссылки при его инспектировании в DevTools
+	*/
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+	 Курсор-рука при наведении на элемент
+	*/
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+	 Приводим к единому цвету svg-элементы
+	 (за исключением тех, у которых уже указан
+	 атрибут fill со значением 'none' или начинается с 'url')
+	*/
+:where([fill]:not([fill=none], [fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+	 Приводим к единому цвету svg-элементы
+	 (за исключением тех, у которых уже указан
+	 атрибут stroke со значением 'none')
+	*/
+:where([stroke]:not([stroke=none], [stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+	 Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+	*/
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+	 Приведение рамок таблиц в классический 'collapse' вид
+	*/
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+	 Удаляем все анимации и переходы для людей,
+	 которые предпочитают их не использовать
+	*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.header {
+  background-color: #eff5ff;
+}
+.header__container {
+  padding-top: 11px;
+  padding-left: 298px;
+  padding-right: 298px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__nav__tel {
+  text-decoration: none;
+  color: #041a3f;
+  font-size: 32px;
+  font-family: "Montserrat Alternates";
+  font-weight: 700;
+}
+
+.suit-rental {
+  padding-left: 289px;
+  padding-right: 298px;
+  margin-top: 120px;
+}
+.suit-rental__container {
+  display: flex;
+  align-items: center;
+}
+.suit-rental__info-text {
+  max-width: 1100px;
+  font-weight: 700;
+  font-family: "Montserrat Alternates";
+  color: #041a3f;
+  font-size: 53px;
+}
+.suit-rental__info-text span {
+  color: #ffca33;
+}
+.suit-rental__btn {
+  margin-top: 48px;
+  color: #fafafa;
+  background-color: #ffca33;
+  border-radius: 4px;
+  padding: 5px 13px;
+  font-size: 18px;
+  font-family: "Montserrat Alternates";
+  border: none;
+  font-weight: 700;
+}
+
+.costumes {
+  font-family: "Montserrat Alternates";
+  margin-top: 70px;
+  margin-bottom: 120px;
+  padding: 0 298px;
+}
+.costumes__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 16px 20px;
+}
+.costumes__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat Alternates";
+  font-size: 43px;
+  margin-bottom: 64px;
+}
+.costumes__card {
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.costumes__card-title {
+  color: #041a3f;
+  font-size: 24px;
+}
+.costumes__card-size {
+  color: rgba(4, 26, 63, 0.6);
+  margin-bottom: 10px;
+}
+.costumes__card-price {
+  color: #041a3f;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.costumes__card-btn {
+  color: #fafafa;
+  background-color: #ffca33;
+  border-radius: 4px;
+  padding: 5px 13px;
+  font-size: 18px;
+  font-family: "Montserrat Alternates";
+  border: none;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.costumes__card-in_stock {
+  color: rgba(4, 26, 63, 0.6);
+  font-size: 16px;
+}
+.costumes__card-in_stock--item {
+  color: rgba(225, 49, 49, 0.6);
+}
+
+.footer {
+  background-color: #eff5ff;
+  padding-left: 298px;
+  padding-right: 298px;
+}
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 0;
+}
+
+@media (max-width: 1440px) {
+  .header__container {
+    padding: 10px 120px;
+  }
+}
+@media (max-width: 1024px) {
+  .header__container {
+    padding: 10px 10px;
+  }
+}
+@media (max-width: 960px) {
+  .header__container {
+    padding: 10px 10px;
+  }
+}
+@media (max-width: 768px) {
+  .header__logo-img {
+    max-width: 64px;
+  }
+  .header__nav__tel {
+    font-size: 18px;
+  }
+}
+@media (max-width: 640px) {
+  .header__logo-img {
+    max-width: 94px;
+  }
+  .header__nav__tel {
+    font-size: 18px;
+  }
+}
+@media (max-width: 320px) {
+  .header__container {
+    padding: 10px 10px;
+    -moz-column-gap: 61px;
+         column-gap: 61px;
+  }
+  .header__logo-img {
+    max-width: 94px;
+  }
+  .header__nav__tel {
+    font-size: 15px;
+  }
+}
+@media (max-width: 1440px) {
+  .suit-rental {
+    padding: 0 118px;
+  }
+}
+@media (max-width: 1024px) {
+  .suit-rental {
+    padding: 0 10px;
+  }
+  .suit-rental__info-text {
+    max-width: 100%;
+  }
+}
+@media (max-width: 960px) {
+  .suit-rental {
+    padding: 0 10px;
+  }
+  .suit-rental__info-text {
+    max-width: 100%;
+    font-size: 42px;
+  }
+}
+@media (max-width: 768px) {
+  .suit-rental__container {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 640px) {
+  .suit-rental__container {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 1440px) {
+  .costumes {
+    padding: 0 120px;
+  }
+}
+@media (max-width: 1024px) {
+  .costumes {
+    padding: 0 0;
+  }
+  .costumes__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 960px) {
+  .costumes {
+    padding: 0 0;
+  }
+  .costumes__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .costumes {
+    padding: 0 0;
+  }
+  .costumes__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .costumes {
+    padding: 0 0;
+  }
+  .costumes__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px 16px;
+  }
+}
+@media (max-width: 320px) {
+  .costumes {
+    padding: 0 0;
+  }
+  .costumes__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 13px 16px;
+  }
+}
+@media (max-width: 1440px) {
+  .footer {
+    padding: 0 120px;
+  }
+}
+@media (max-width: 1024px) {
+  .footer {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 960px) {
+  .footer__img {
+    max-width: 102px;
+  }
+  .header__nav__tel {
+    font-size: 18px;
+  }
+  .footer {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 768px) {
+  .footer__img {
+    max-width: 102px;
+  }
+  .header__nav__tel {
+    font-size: 18px;
+  }
+  .footer {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 640px) {
+  .footer__container {
+    padding: 16px 10px;
+  }
+}
+@media (max-width: 320px) {
+  .footer__container {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+}/*# sourceMappingURL=main.css.map */

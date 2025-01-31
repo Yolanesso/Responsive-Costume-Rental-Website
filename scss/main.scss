@@ -1,0 +1,7 @@
+@import './variables', './fonts', './paddingOnThePage', './normalize';
+
+@import './blocks/header/header', './blocks/suit-rental/suit-rental',
+	'./blocks/costumes/costumes', './blocks/footer/footer';
+
+@import './blocks/header/header-media', './blocks/suit-rental/suit-rental-media',
+	'./blocks/costumes/costumes-media', './blocks/footer/footer-media';
