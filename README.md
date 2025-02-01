@@ -32,5 +32,5 @@ Responsive Costume Rental Website
 
 ## 🚀 Установка и запуск
 
-1. Склонируйте репозиторий: git clone https://github.com/yourusername/yourresponsiveproject.git
+1. Склонируйте репозиторий: git clone https://github.com/Yolanesso/Responsive-Costume-Rental-Website.git
 2. Откройте index.html в браузере.
